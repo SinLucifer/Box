@@ -512,6 +512,18 @@ public class HomeActivity extends BaseActivity {
                                 }
 
                                 @Override
+                                public void mid() {
+                                    mHandler.post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Hawk.put(HawkConfig.API_URL, getString(R.string.app_source));
+                                            initData();
+                                            dialog.hide();
+                                        }
+                                    });
+                                }
+
+                                @Override
                                 public void right() {
                                     dataInitOk = true;
                                     jarInitOk = true;

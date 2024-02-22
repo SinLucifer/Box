@@ -72,6 +72,16 @@ public class ApiDialog extends BaseDialog {
         inputEPG = findViewById(R.id.input_epg);
         inputEPG.setText(Hawk.get(HawkConfig.EPG_URL, ""));
 
+        findViewById(R.id.syncTvBoxJson).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputApi.setText(getContext().getString(R.string.app_source));
+                inputLive.setText("");
+                inputEPG.setText("");
+                findViewById(R.id.inputSubmit).performClick();
+            }
+        });
+
         findViewById(R.id.inputSubmit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -19,6 +19,7 @@ public class TipDialog extends BaseDialog {
         setCanceledOnTouchOutside(false);
         TextView tipInfo = findViewById(R.id.tipInfo);
         TextView leftBtn = findViewById(R.id.leftBtn);
+        TextView midBtn = findViewById(R.id.midBtn);
         TextView rightBtn = findViewById(R.id.rightBtn);
         tipInfo.setText(tip);
         leftBtn.setText(left);
@@ -29,6 +30,14 @@ public class TipDialog extends BaseDialog {
                 listener.left();
             }
         });
+
+        midBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.mid();
+            }
+        });
+
         rightBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +54,8 @@ public class TipDialog extends BaseDialog {
 
     public interface OnListener {
         void left();
+
+        void mid();
 
         void right();
 
